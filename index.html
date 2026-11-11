@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ $ZAP — The Elysium L2 Meme Coin</title>
+    <!-- Tailwind CSS CDN -->
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=1oYMQi5GvKtO8YGxIduPdhy5DRAYyxmLH13jl4vsieZaze1dshmwxkaY4XvRSrGD_GAK2T6obJUF-zRw5KudogrRigXDNG2YHPpjjQ6yQdNi2JDm_pqSiEp-i_ynOa2gM6DB7F1_YZIBmy7vsXYhr78rBWc3AHiiXOBU4lTmjtDOuhVdXCYv2IRwY-XNAnwOnM1qTEQ59BWpnBHiPCM4A7GBxpz5AOzbWUdv-ALmCGj53wMOGIzKL-VAywE4l9sOLvlA5Z5jXFN7g2WX3BXZr2dzYaCod5fYQ1fpI3A_UNxrEUNpnwRseEktaWcEdGRWvRvV_diSSNseKSWBbBxIZw" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neonYellow: '#FFEE00',
+                        deepBlack: '#050505',
+                        panelBlack: '#0D0D0D',
+                        borderYellow: '#FFEE0033'
+                    },
+                    fontFamily: {
+                        mono: ['Courier New', Courier, monospace],
+                        sans: ['Inter', sans-serif]
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom Brutalist & Cyberpunk Styles -->
+    <style>
+        body {
+            background-color: #050505;
+            color: #FFEE00;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+        /* Dense Terminal Dot Grid Background */
+        .halftone-bg {
+            background-image: radial-gradient(#FFEE00 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            background-color: #050505;
+        }
+        .brutal-border {
+            border: 4px solid #FFEE00;
+            box-shadow: 6px 6px 0px #FFEE00;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        .brutal-border:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #FFEE00;
+        }
+        .brutal-button {
+            border: 3px solid #FFEE00;
+            background-color: #FFEE00;
+            color: #050505;
+            font-weight: 900;
+            box-shadow: 5px 5px 0px #FFFFFF;
+            transition: all 0.1s ease;
+        }
+        .brutal-button:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #FFFFFF;
+            background-color: #FFFFFF;
+        }
+        .brutal-button-dark {
+            border: 3px solid #FFEE00;
+            background-color: #050505;
+            color: #FFEE00;
+            font-weight: 900;
+            box-shadow: 5px 5px 0px #FFEE00;
+            transition: all 0.1s ease;
+        }
+        .brutal-button-dark:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #FFEE00;
+            background-color: #FFEE00;
+            color: #050505;
+        }
+        .glow-text {
+            text-shadow: 0 0 15px rgba(255, 238, 0, 0.6);
+        }
+        /* Luminous White Glow Text */
+        .luminous-white {
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+        }
+        /* Marquee Animation Keyframes */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 25s linear infinite;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050505;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFEE00;
+        }
+    </style>
+</head>
+<body class="halftone-bg min-h-screen flex flex-col justify-between text-neonYellow selection:bg-neonYellow selection:text-deepBlack">
+
+    <!-- Top Ticker Bar -->
+    <div class="bg-neonYellow text-deepBlack font-black text-xs sm:text-sm py-2 px-4 uppercase tracking-widest overflow-hidden whitespace-nowrap border-b-4 border-deepBlack">
+        <div class="animate-marquee">
+            <span>⚡ ELYSIUM L2 MAINNET LAUNCH: NOVEMBER 9, 2026 &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; NO LAG. JUST ZAP. &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 0% TRADING TAX &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 100% PRE-AUDITED OPENZEPPELIN STANDARD &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 50/50 GENESIS SPLIT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; IMMUTABLE 70:20:10 MILESTONE VAULT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; SUB-MILLISECOND SEQUENCER VELOCITY ⚡</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;⚡ ELYSIUM L2 MAINNET LAUNCH: NOVEMBER 9, 2026 &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; NO LAG. JUST ZAP. &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 0% TRADING TAX &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 100% PRE-AUDITED OPENZEPPELIN STANDARD &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 50/50 GENESIS SPLIT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; IMMUTABLE 70:20:10 MILESTONE VAULT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; SUB-MILLISECOND SEQUENCER VELOCITY ⚡</span>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+
+        <!-- Header / Nav -->
+        <header class="flex flex-col sm:flex-row justify-between items-center mb-12 pb-6 border-b-4 border-neonYellow gap-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-4xl sm:text-5xl font-black bg-neonYellow text-deepBlack px-3 py-1 brutal-border">⚡</span>
+                <div>
+                    <h1 class="text-3xl sm:text-4xl font-black tracking-tighter glow-text"><span class="text-neonYellow">&nbsp;$ZAP</span> <span class="text-white">/ $HYPE</span></h1>
+                    <p class="text-xs uppercase tracking-widest text-white font-bold">&nbsp;&nbsp;&nbsp;THE VOLATILITY ENGINE OF HYPERLIQUID'S ELYSIUM L2</p>
+                </div>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                <a href="https://dexscreener.com" target="_blank" rel="noopener noreferrer" class="brutal-button px-4 py-2 text-xs uppercase tracking-widest">📈 Dexscreener</a>
+                <a href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer" class="brutal-button-dark px-4 py-2 text-xs uppercase tracking-widest">💬 Telegram</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12 items-stretch">
+            <div class="lg:col-span-7 space-y-6 flex flex-col justify-center">
+                <div>
+                    <div class="inline-block bg-neonYellow text-deepBlack font-black px-3 py-1 text-xs uppercase tracking-widest brutal-border">
+                        Genesis Drop // November 9, 2026
+                    </div>
+                </div>
+                <h2 class="text-5xl sm:text-7xl font-black tracking-tight uppercase leading-none luminous-white">
+                    NO LAG.<br>JUST ZAP.
+                </h2>
+                <p class="text-base sm:text-lg font-mono opacity-90 max-w-lg leading-relaxed">
+                    The hyper-caffeinated, 100ms execution mascot of Elysium. No centralized VC baggage. Just pure high-frequency voltage powered by Kinetiq rails and an unbreakable Ansem-model milestone vault.
+                </p>
+            </div>
+
+            <div class="lg:col-span-5 flex flex-col">
+                <div class="brutal-border bg-panelBlack p-6 text-center flex flex-col justify-between relative overflow-hidden h-full">
+                    <div class="absolute -right-10 -top-10 text-9xl opacity-10 select-none font-black">⚡</div>
+                    <div class="inline-block bg-deepBlack border-2 border-neonYellow px-4 py-1 text-xs uppercase font-bold tracking-widest mx-auto">
+                        OFFICIAL TICKER: $ZAP
+                    </div>
+                    <div class="mt-6 pt-2">
+                        <div class="text-7xl sm:text-8xl font-black glow-text animate-bounce">⚡</div>
+                        <p class="text-xs uppercase tracking-widest mt-3 text-white font-bold">"Blink and you're liquidated"</p>
+                    </div>
+
+                    <!-- Top Community & Navigation Bar -->
+                    <div class="flex flex-col items-center justify-center space-y-1 text-xs uppercase font-mono py-2 px-4 sm:px-8 border-b-2 border-neonYellow bg-deepBlack w-full">
+                        <div class="space-x-3">
+                            <a href="https://x.com/zapdotmeme" target="_blank" class="text-neonYellow hover:underline">X (Twitter)</a>
+                            <span class="text-neonYellow">/</span>
+                            <a href="https://t.me/your_telegram" target="_blank" class="text-neonYellow hover:underline">Telegram</a>
+                            <span class="text-neonYellow">/</span>
+                            <a href="https://dexscreener.com" target="_blank" class="text-neonYellow hover:underline">Dexscreener</a>
+                        </div>
+                        <div class="space-x-3">
+                            <a href="https://vulcan-x.io/elysium-v2?mod=explorer" target="_blank" class="text-white hover:underline">Elysium Explorer</a>
+                            <span class="text-neonYellow">/</span>
+                            <a href="#audit-disclosure" class="text-white hover:underline">Contract Audit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full-Width Cyberpunk Banner Image Section -->
+        <section class="mb-16">
+            <div class="brutal-border rounded-lg overflow-hidden bg-panelBlack">
+                <img src="x post 1 image.png" 
+                     onerror="this.src='https://placehold.co/1200x600/121212/e5ff00?text=ZAP+Cyberpunk+Cityscape'" 
+                     alt="ZAP Cyberpunk Cityscape" 
+                     class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity">
+            </div>
+        </section>
+
+        <!-- Live DEX Telemetry & Milestone Gauge -->
+        <section id="dex-telemetry" class="mb-16">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b-2 border-neonYellow pb-4">
+                    <div>
+                        <div class="inline-block bg-neonYellow text-deepBlack font-black px-2 py-0.5 text-xs uppercase tracking-widest mb-2">
+                            On-Chain AMM State
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black uppercase tracking-tight">Real-Time DEX Telemetry</h3>
+                        <p class="text-xs uppercase text-white font-mono mt-1">Direct pool telemetry on Elysium L2 rails // Oracle-free native event logs.</p>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow px-3 py-1 text-xs font-bold uppercase text-neonYellow flex items-center space-x-2">
+                        <span class="animate-pulse">●</span>
+                        <span>100ms Sequencer Feed</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="bg-deepBlack border-2 border-neonYellow p-4 space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-white/70 block">Spot Price</span>
+                        <span class="text-2xl font-black text-neonYellow block">$0.00420</span>
+                        <span class="text-[10px] uppercase text-white font-mono">Pair: $ZAP / $HYPE</span>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow p-4 space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-white/70 block">24H Trading Volume</span>
+                        <span class="text-2xl font-black text-neonYellow block">$14,280,000</span>
+                        <span class="text-[10px] uppercase text-white font-mono">Algorithmic Churn Active</span>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow p-4 space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-white/70 block">Diluted Market Cap</span>
+                        <span class="text-2xl font-black text-neonYellow block">$2,100,000</span>
+                        <span class="text-[10px] uppercase text-white font-mono">Step 2 Target Cleared</span>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow p-4 space-y-1">
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-white/70 block">Locked Liquidity</span>
+                        <span class="text-2xl font-black text-neonYellow block">$480,000</span>
+                        <span class="text-[10px] uppercase text-white font-mono">Deep AMM Order Spread</span>
+                    </div>
+                </div>
+
+                <div class="bg-deepBlack border-2 border-neonYellow p-4 space-y-2">
+                    <div class="flex flex-col sm:flex-row justify-between text-xs uppercase font-mono font-bold text-white gap-1">
+                        <span>Milestone Horizon // Road to $20M+ MC</span>
+                        <span class="text-neonYellow">Cumulative Volume: $14.28M / $100.00M (14.2%)</span>
+                    </div>
+                    <div class="w-full bg-panelBlack border border-neonYellow/40 h-4 p-0.5">
+                        <div class="bg-neonYellow h-full transition-all duration-500" style="width: 14.2%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How To Buy Section -->
+        <section class="mb-16">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-6">
+                <div class="border-b-2 border-neonYellow pb-4">
+                    <h3 class="text-2xl sm:text-3xl font-black uppercase tracking-tight">How To Buy $ZAP</h3>
+                    <p class="text-xs uppercase text-white font-mono mt-1">Frictionless 3-step onboarding for Elysium L2 mainnet rails.</p>
+                </div>
+                <div class="pt-4 flex justify-center">
+                    <img src="how to buy image.png" alt="How To Buy $ZAP Infographic" class="w-full h-auto border-2 border-neonYellow object-contain">
+                </div>
+            </div>
+        </section>
+
+        <!-- Lore & Philosophy Section -->
+        <section class="mb-16">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-6">
+                <div class="border-b-2 border-neonYellow pb-4">
+                    <h3 class="text-2xl sm:text-3xl font-black uppercase tracking-tight">Lore & Origin</h3>
+                    <p class="text-xs uppercase text-white font-mono mt-1">From ancient mythos to Hyperliquid's Elysium L2 rails.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch pt-2">
+                    <div class="lg:col-span-5 flex w-full bg-deepBlack border-2 border-neonYellow p-2">
+                        <img src="lore image.png" 
+                             alt="The Elysium L2 Origin - Zeus's Lightning" 
+                             class="w-full h-full min-h-[500px] lg:min-h-[600px] object-contain">
+                    </div>
+
+                    <div class="lg:col-span-7 flex flex-col justify-between space-y-4 lg:space-y-0">
+                        <div class="bg-deepBlack border-2 border-neonYellow p-3 flex flex-col space-y-2">
+                            <img src="lore image right 1.png" alt="The Olympian Strike" class="w-full h-auto object-cover">
+                            <div class="text-center pt-1">
+                                <p class="text-[9px] sm:text-[9px] font-mono text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                    Zeus's thunderbolt channels primordial, high-voltage force into the digital arena.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-deepBlack border-2 border-neonYellow p-3 flex flex-col space-y-2">
+                            <img src="lore image right 2.png" alt="The Hyperliquid Engine" class="w-full h-auto object-cover">
+                            <div class="text-center pt-1">
+                                <p class="text-[9px] sm:text-[9px] font-mono text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                    Elysium L2 inherits elite institutional backing from Hyperliquid's proven profitability.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="bg-deepBlack border-2 border-neonYellow p-3 flex flex-col space-y-2">
+                            <img src="lore image right 3.png" alt="100ms Execution" class="w-full h-auto object-cover">
+                            <div class="text-center pt-1">
+                                <p class="text-[9px] sm:text-[9px] font-mono text-white whitespace-nowrap overflow-hidden text-ellipsis">
+                                    100ms sequencer execution speeds deliver lightning-fast mainnet throughput.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contract & Security Block -->
+        <section class="mb-16">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b-2 border-neonYellow pb-4">
+                    <div>
+                        <h3 class="text-2xl font-black uppercase tracking-tight">Contract & Security Architecture</h3>
+                        <p class="text-xs uppercase text-white font-mono">Audited EVM Bytecode // 100% Pre-Audited OpenZeppelin Standard</p>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow px-3 py-1 text-xs font-bold uppercase">
+                        ⚡ 0% Tax // Verified Bytecode
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs uppercase font-bold tracking-widest opacity-80">Verified Contract Address (Elysium Mainnet):</label>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="text" readonly id="contractAddress" value="0x6BC984E9e4c5C4EB0389BCD3EbEA3122860a4421" class="bg-deepBlack border-2 border-neonYellow px-4 py-3 font-mono text-xs sm:text-sm flex-1 text-neonYellow focus:outline-none">
+                        <button onclick="copyContract()" class="brutal-button px-6 py-3 text-xs uppercase tracking-widest cursor-pointer whitespace-nowrap">
+                            📋 Copy Address
+                        </button>
+                    </div>
+                    <p id="copyFeedback" class="text-[10px] uppercase font-bold text-neonYellow h-4"></p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                    <div class="bg-deepBlack border-2 border-neonYellow p-5 space-y-2">
+                        <div class="font-black text-lg uppercase flex items-center space-x-2">
+                            <span>⚡ 0% Trading Tax // Zero Lag</span>
+                        </div>
+                        <p class="text-xs font-mono text-white leading-relaxed">
+                            Pure vanilla ERC-20 execution. Zero buy/sell tax, zero slippage penalties, and no router siphons. Built for clean, sub-millisecond swaps on high-speed L2 rails.
+                        </p>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow p-5 space-y-2">
+                        <div class="font-black text-lg uppercase flex items-center space-x-2">
+                            <span>🏛️ Immutable Split Vault</span>
+                        </div>
+                        <p class="text-xs font-mono text-white leading-relaxed">
+                            Zero unvetted code. 60% genesis liquidity paired on DEX with LP tokens locked; 40% locked in milestone vault distributing strictly via audited ZAPVault.sol upon verified milestones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Milestone Vault -->
+        <section id="vault" class="mb-16">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-6">
+                <div class="border-b-2 border-neonYellow pb-4">
+                    <h3 class="text-2xl sm:text-3xl font-black uppercase tracking-tight">40% Protocol Vault // 5-Step Synchronized Unlocks</h3>
+                    <p class="text-xs uppercase text-white font-mono mt-1">Tokens unlock programmatically via native DEX state & verified media deliverables. Zero upfront allocations at genesis.</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-mono text-xs sm:text-sm border-2 border-neonYellow">
+                        <thead class="bg-deepBlack text-neonYellow uppercase border-b-2 border-neonYellow">
+                            <tr>
+                                <th class="p-3 border-r-2 border-neonYellow whitespace-nowrap">Tranche / Step</th>
+                                <th class="p-3 border-r-2 border-neonYellow whitespace-nowrap">Market Cap & Volume Target</th>
+                                <th class="p-3 border-r-2 border-neonYellow whitespace-nowrap">Window</th>
+                                <th class="p-3 border-r-2 border-neonYellow whitespace-nowrap">Liquidity Partner<br><span class="text-[10px] text-white font-normal">(24% Total)</span></th>
+                                <th class="p-3 border-r-2 border-neonYellow whitespace-nowrap">Attention Merchant<br><span class="text-[10px] text-white font-normal">(8% Total)</span></th>
+                                <th class="p-3 border-r-2 border-neonYellow whitespace-nowrap">Creator Reserve<br><span class="text-[10px] text-white font-normal">(8% Total)</span></th>
+                                <th class="p-3 whitespace-nowrap">Status / Milestone Trigger</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-neonYellow text-white">
+                            <tr class="hover:bg-deepBlack/50 transition">
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 1: Ignition</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold">$500,000 MC<br><span class="text-[10px] text-white/60 font-normal">Cumul. Vol: $5M+</span></td>
+                                <td class="p-3 border-r-2 border-neonYellow">Days 1 – 3</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">4.8M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 opacity-80">🔒 Pool Volume & Media Sign-Off</td>
+                            </tr>
+                            <tr class="hover:bg-deepBlack/50 transition">
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 2: Velocity</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold">$2,000,000 MC<br><span class="text-[10px] text-white/60 font-normal">Cumul. Vol: $10M+</span></td>
+                                <td class="p-3 border-r-2 border-neonYellow">Days 4 – 7</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">4.8M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 opacity-80">🔒 DexScreener Trending Maintained</td>
+                            </tr>
+                            <tr class="hover:bg-deepBlack/50 transition">
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 3: Expansion</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold">$5,000,000 MC<br><span class="text-[10px] text-white/60 font-normal">Cumul. Vol: $25M+</span></td>
+                                <td class="p-3 border-r-2 border-neonYellow">Weeks 2 – 3</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">4.8M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 opacity-80">🔒 Depth & Conversion Sustained</td>
+                            </tr>
+                            <tr class="hover:bg-deepBlack/50 transition">
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 4: Consolidation</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold">$10,000,000 MC<br><span class="text-[10px] text-white/60 font-normal">Cumul. Vol: $50M+</span></td>
+                                <td class="p-3 border-r-2 border-neonYellow">Weeks 4 – 5</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">4.8M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow font-bold text-neonYellow">1.6M ZAP</td>
+                                <td class="p-3 opacity-80">🔒 Automated Rebalance Verified</td>
+                            </tr>
+                            <tr class="bg-neonYellow text-deepBlack font-black">
+                                <td class="p-3 border-r-2 border-deepBlack">Step 5: Graduation</td>
+                                <td class="p-3 border-r-2 border-deepBlack">$20,000,000+ MC<br><span class="text-[10px] opacity-80 font-normal">Cumul. Vol: $100M+</span></td>
+                                <td class="p-3 border-r-2 border-deepBlack">Weeks 6 – 8</td>
+                                <td class="p-3 border-r-2 border-deepBlack">4.8M ZAP<br><span class="text-[10px] opacity-90 font-normal">(24M TOTAL COMPLETE)</span></td>
+                                <td class="p-3 border-r-2 border-deepBlack">1.6M ZAP<br><span class="text-[10px] opacity-90 font-normal">(8M TOTAL COMPLETE)</span></td>
+                                <td class="p-3 border-r-2 border-deepBlack">1.6M ZAP<br><span class="text-[10px] opacity-90 font-normal">(8M TOTAL COMPLETE)</span></td>
+                                <td class="p-3">🚀 Final Tranche / HyperCore Spot Prep</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokenomics Summary Section -->
+        <section id="tokenomics" class="mb-16">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-6">
+                <div class="border-b-2 border-neonYellow pb-4">
+                    <h3 class="text-2xl font-black uppercase tracking-tight">Tokenomics Breakdown</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-deepBlack border-2 border-neonYellow p-6 text-center space-y-2">
+                        <span class="text-4xl font-black block">60%</span>
+                        <h4 class="font-bold uppercase text-sm">Initial Liquidity Pool</h4>
+                        <p class="text-xs opacity-70 text-white font-mono">60,000,000 $ZAP paired directly with 0.4 HYPE into the Elysium AMM at block zero, with 100% of LP tokens permanently time-locked in ZAPLPLocker.sol.</p>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow p-6 text-center space-y-2">
+                        <span class="text-4xl font-black block">40%</span>
+                        <h4 class="font-bold uppercase text-sm">Protocol Milestone Vault</h4>
+                        <p class="text-xs opacity-70 text-white font-mono">40,000,000 $ZAP locked inside ZAPVault.sol across 5 tranches (60% LP Partner, 20% Attention Merchant, 20% Creator Reserve) with continuous 8-day per-second linear streaming upon trigger.</p>
+                    </div>
+                    <div class="bg-deepBlack border-2 border-neonYellow p-6 text-center space-y-2">
+                        <span class="text-4xl font-black block">100M</span>
+                        <h4 class="font-bold uppercase text-sm">Total Fixed Supply</h4>
+                        <p class="text-xs opacity-70 text-white font-mono">Hardcapped, immutable, and optimized for Elysium mainnet execution speeds with zero mint function, zero hidden allocations, and 100% pre-audited OpenZeppelin bytecode.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contract Audit & Verification Section -->
+        <section id="audit-disclosure" class="mb-2">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-6">
+                <div class="border-b-2 border-neonYellow pb-4">
+                    <h3 class="text-2xl sm:text-3xl font-black uppercase tracking-tight">Contract Audit</h3>
+                </div>
+                <div class="space-y-4 text-sm font-mono opacity-90 text-white leading-relaxed">
+                    <p>The $ZAP token contract relies entirely on OpenZeppelin's standard, pre-audited ERC-20 token architecture. Zero modifications have been made to the core standard code.</p>
+                    <p>You can verify the foundational code and security compliance directly through official on-chain records:</p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <a href="https://github.com/OpenZeppelin/openzeppelin-contracts" target="_blank" rel="noopener" class="bg-deepBlack border-2 border-neonYellow p-4 flex items-center justify-between hover:bg-neonYellow hover:text-deepBlack transition group">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-8 h-8 flex items-center justify-center bg-panelBlack border border-neonYellow group-hover:border-deepBlack p-1 rounded-sm text-lg">
+                                    🛡️
+                                </span>
+                                <div>
+                                    <div class="font-black uppercase text-xs text-neonYellow group-hover:text-deepBlack">Security Framework</div>
+                                    <div class="text-[10px] text-white group-hover:text-deepBlack opacity-80">OpenZeppelin Standard</div>
+                                </div>
+                            </div>
+                            <span class="text-neonYellow group-hover:text-deepBlack font-black text-lg">↗</span>
+                        </a>
+
+                        <a href="https://vulcan-x.io/elysium-v2?mod=explorer" target="_blank" rel="noopener" class="bg-deepBlack border-2 border-neonYellow p-4 flex items-center justify-between hover:bg-neonYellow hover:text-deepBlack transition group">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-8 h-8 flex items-center justify-center bg-panelBlack border border-neonYellow group-hover:border-deepBlack text-lg">
+                                    🔗
+                                </span>
+                                <div>
+                                    <div class="font-black uppercase text-xs text-neonYellow group-hover:text-deepBlack">On-Chain Source</div>
+                                    <div class="text-[10px] text-white group-hover:text-deepBlack opacity-80">Elysium Testnet Explorer</div>
+                                </div>
+                            </div>
+                            <span class="text-neonYellow group-hover:text-deepBlack font-black text-lg">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section Container -->
+    <div class="w-full max-w-6xl mx-auto px-4 sm:px-8 mt-4">
+        <footer class="w-full border-t-4 border-neonYellow pt-4 pb-8 flex flex-col sm:flex-row justify-between items-start sm:items-end text-xs font-mono">
+            <div class="space-y-1 text-neonYellow opacity-90">
+                <div>© 2026 ZAP / ⚡. ALL RIGHTS RESERVED.</div>
+                <div class="uppercase text-white">BUILT FOR ELYSIUM L2 MAINNET LAUNCH ON NOVEMBER 9, 2026.</div>
+            </div>
+
+            <div class="flex flex-col items-start sm:items-end space-y-1 mt-4 sm:mt-0 uppercase">
+                <div class="space-x-3">
+                    <a href="https://x.com/zapdotmeme" target="_blank" class="text-neonYellow hover:underline">X (Twitter)</a>
+                    <span class="text-neonYellow">/</span>
+                    <a href="https://t.me/your_telegram" target="_blank" class="text-neonYellow hover:underline">Telegram</a>
+                    <span class="text-neonYellow">/</span>
+                    <a href="https://dexscreener.com" target="_blank" class="text-neonYellow hover:underline">Dexscreener</a>
+                </div>
+                <div class="space-x-3">
+                    <a href="https://vulcan-x.io/elysium-v2?mod=explorer" target="_blank" class="text-white hover:underline">Elysium Explorer</a>
+                    <span class="text-neonYellow">/</span>
+                    <a href="#audit-disclosure" class="text-white hover:underline">Contract Audit</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Bottom Marquee -->
+    <div class="w-full bg-neonYellow text-deepBlack font-black text-xs sm:text-sm py-2 px-4 uppercase tracking-widest overflow-hidden whitespace-nowrap border-t-4 border-deepBlack">
+        <div class="animate-marquee">
+            <span>⚡ ELYSIUM L2 MAINNET LAUNCH: NOVEMBER 9, 2026 &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; NO LAG. JUST ZAP. &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 0% TRADING TAX &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 100% PRE-AUDITED OPENZEPPELIN STANDARD &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 50/50 GENESIS SPLIT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; IMMUTABLE 70:20:10 MILESTONE VAULT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; SUB-MILLISECOND SEQUENCER VELOCITY ⚡</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;⚡ ELYSIUM L2 MAINNET LAUNCH: NOVEMBER 9, 2026 &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; NO LAG. JUST ZAP. &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 0% TRADING TAX &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 100% PRE-AUDITED OPENZEPPELIN STANDARD &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; 50/50 GENESIS SPLIT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; IMMUTABLE 70:20:10 MILESTONE VAULT &nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp; SUB-MILLISECOND SEQUENCER VELOCITY ⚡</span>
+        </div>
+    </div>
+
+    <!-- JavaScript for Copy Function -->
+    <script>
+        function copyContract() {
+            const contractInput = document.getElementById('contractAddress');
+            contractInput.select();
+            contractInput.setSelectionRange(0, 99999);
+            
+            try {
+                navigator.clipboard.writeText(contractInput.value).then(() => {
+                    const feedback = document.getElementById('copyFeedback');
+                    feedback.textContent = "⚡ Contract address copied to clipboard!";
+                    setTimeout(() => {
+                        feedback.textContent = "";
+                    }, 3000);
+                });
+            } catch (err) {
+                document.execCommand('copy');
+                const feedback = document.getElementById('copyFeedback');
+                feedback.textContent = "⚡ Contract address copied to clipboard!";
+                setTimeout(() => {
+                    feedback.textContent = "";
+                }, 3000);
+            }
+        }
+    </script>
+</body>
+</html>

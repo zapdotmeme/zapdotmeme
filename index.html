@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚡ $ZAP — The Elysium L2 Meme Coin</title>
     <!-- Tailwind CSS CDN -->
-    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=dCNqeq7io5jN7IK_1jttUPmuwxwMME--nI3EiEkEZbG0DROJbWONmW8A7fJaznXT_fcJdk7AdeMjgNx1RKCpRvXifOMi-eKt6Vll_O-OonaE7rYq5nlfmLUvmgrTrbd7o0IbUOQ-scjryNGIUrVhRkloIYQEA6ssrYqD1-IJhAUNZEGB46PliZswTJTMaPI7nLhSat2BJFreyxTA-wgSELZsaXib_97yV4got2uP0uqOQEwA5AbXrzb9ave0S5b3GGzT1h5oSSLEMr-5rx0bZGjaQcBe087czj7iJy10oWFtBzC-kM6kZPvEWsOrBIw2bKITgOZmHcvpby46vVVyiQ" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ZiUJp4iDxbe-nxu3DnmyjlSw8zPyAVAG8Ek05cUaQsllO4NMD9rXIewMXsqad9KTuplwExU-R_nfQO4qg1iSkJSJq7lIwebFYDjAKXjjvX679r-1bjbBYjguYPFhDDKDkQ4_pr2swV2OHayjTAEJu8C9XJeog69jbal3kqlP-NEnSI4t6RSIpIr0rrl8jS4hskIj6l1aoGq1VNSdjmoqIGXlzbvDPoKPtSGDyifCklLUgS_7YJY5BtlYZ26BUwAO7CDkGxuIxEuWQCWnZdw0r9tXE6RCa-3oVs5d_U684cTNupROu1jBAj3t1SBiQS1wOqryX6cGLYe3VKr29f5o9w" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
     <!-- Ethers.js CDN (UMD) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.2/ethers.umd.min.js"></script>
     <script>
@@ -104,6 +104,24 @@
         }
         ::-webkit-scrollbar-thumb {
             background: #FFEE00;
+        }
+        /* Animated Cyberpunk Neon Glow for Progress Bar */
+        @keyframes neonPulse {
+            0% {
+                box-shadow: 0 0 6px #FFEE00, 0 0 12px #FFEE00;
+                opacity: 0.85;
+            }
+            50% {
+                box-shadow: 0 0 20px #FFEE00, 0 0 35px #FFEE00, 0 0 50px rgba(255, 238, 0, 0.8);
+                opacity: 1;
+            }
+            100% {
+                box-shadow: 0 0 6px #FFEE00, 0 0 12px #FFEE00;
+                opacity: 0.85;
+            }
+        }
+        .neon-progress-glow {
+            animation: neonPulse 2s ease-in-out infinite;
         }
     </style>
 </head>
@@ -238,14 +256,18 @@
                     </div>
                 </div>
 
-                <!-- Milestone Progress Bar -->
+                <!-- Milestone Progress Bar with Cyberpunk Glow -->
                 <div class="bg-deepBlack border-2 border-neonYellow p-4 space-y-2">
                     <div class="flex flex-col sm:flex-row justify-between text-xs uppercase font-mono font-bold text-white gap-1">
-                        <span>Tranche 1 Horizon // Target: $500K MC & $5M Volume</span>
+                        <span class="flex items-center gap-2">
+                            <span class="inline-block w-2 h-2 rounded-full bg-neonYellow animate-ping"></span>
+                            Tranche 1 Horizon // Target: $500K MC & $5M Volume
+                        </span>
                         <span class="text-neonYellow">Step 1 Status: Armed (0 / 5 Unlocked)</span>
                     </div>
-                    <div class="w-full bg-panelBlack border border-neonYellow/40 h-4 p-0.5">
-                        <div class="bg-neonYellow h-full transition-all duration-500" style="width: 2%;"></div>
+                    <div class="w-full bg-panelBlack border-2 border-neonYellow/60 h-5 p-0.5 relative overflow-hidden">
+                        <!-- Glowing animated bar -->
+                        <div class="bg-neonYellow h-full neon-progress-glow transition-all duration-500" style="width: 3.5%;"></div>
                     </div>
                 </div>
             </div>

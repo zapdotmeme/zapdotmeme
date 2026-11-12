@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ $ZAP // Partner Vault & Claim Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=XdjHlZnLnOn4wHYkLLdGaaoUvC4W6cYT85kpwfsItoxr94C86AXtNgWmHVOz_YrQmc37EMxJdCPJ79qU25p6zBJQLJP2yAuDv2aOv8dfiwFbDR_YRaEhT3hgD05IIbn6ObprV385wU6dXBb4gKvcT7XLht2vF7-P-mRfMH43QJyd9XQe7V82n2Pxdfub_9bJrzPzjvW5ZGihFx-N4i-WU5_FeG4atYmkQo9-gpS2lOdfxASUxxAx1xuRvhy5wqiD9DAYDrQ7ZW12YMZ1gGPC2a44iCegt2eb1AFsROTceP4t7LbbOqYeGvzTkUwkqaC12urgd8BOkVOjZeaIIv1V4g" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Ethers.js CDN (UMD) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.2/ethers.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neonYellow: '#FFEE00',
+                        deepBlack: '#050505',
+                        panelBlack: '#0D0D0D',
+                        borderYellow: '#FFEE0033'
+                    },
+                    fontFamily: {
+                        mono: ['Courier New', Courier, monospace],
+                        sans: ['Inter', sans-serif]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #FFEE00;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
+        }
+        .halftone-bg {
+            background-image: radial-gradient(#FFEE00 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            background-color: #050505;
+        }
+        .brutal-border {
+            border: 4px solid #FFEE00;
+            box-shadow: 6px 6px 0px #FFEE00;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        .brutal-border:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px #FFEE00;
+        }
+        .brutal-button {
+            border: 3px solid #FFEE00;
+            background-color: #FFEE00;
+            color: #050505;
+            font-weight: 900;
+            box-shadow: 5px 5px 0px #FFFFFF;
+            transition: all 0.1s ease;
+        }
+        .brutal-button:hover:not(:disabled) {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #FFFFFF;
+            background-color: #FFFFFF;
+        }
+        .brutal-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        .brutal-button-dark {
+            border: 3px solid #FFEE00;
+            background-color: #050505;
+            color: #FFEE00;
+            font-weight: 900;
+            box-shadow: 5px 5px 0px #FFEE00;
+            transition: all 0.1s ease;
+        }
+        .brutal-button-dark:hover:not(:disabled) {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #FFEE00;
+            background-color: #FFEE00;
+            color: #050505;
+        }
+        .glow-text {
+            text-shadow: 0 0 15px rgba(255, 238, 0, 0.6);
+        }
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 6px #FFEE00, 0 0 12px #FFEE00; opacity: 0.85; }
+            50% { box-shadow: 0 0 20px #FFEE00, 0 0 35px #FFEE00, 0 0 50px rgba(255, 238, 0, 0.8); opacity: 1; }
+            100% { box-shadow: 0 0 6px #FFEE00, 0 0 12px #FFEE00; opacity: 0.85; }
+        }
+        .neon-progress-glow {
+            animation: neonPulse 2s ease-in-out infinite;
+        }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #FFEE00; }
+    </style>
+</head>
+<body class="halftone-bg min-h-screen flex flex-col justify-between text-neonYellow selection:bg-neonYellow selection:text-deepBlack">
+
+    <!-- Top Security Ribbon -->
+    <div class="bg-neonYellow text-deepBlack font-black text-xs sm:text-sm py-2 px-4 uppercase tracking-widest overflow-hidden whitespace-nowrap border-b-4 border-deepBlack flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <span>🔒 CLOUDFLARE ACCESS PROTECTED // RESTRICTED PARTNER INTERFACE</span>
+        </div>
+        <div class="hidden sm:block text-[11px] font-mono">
+            ELYSIUM L2 TESTNET (CHAIN ID: 1338)
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+
+        <!-- Header / Navigation -->
+        <header class="flex flex-col sm:flex-row justify-between items-center mb-10 pb-6 border-b-4 border-neonYellow gap-4">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="text-4xl sm:text-5xl font-black bg-neonYellow text-deepBlack px-3 py-1 brutal-border hover:bg-white transition">⚡</a>
+                <div>
+                    <h1 class="text-2xl sm:text-3xl font-black tracking-tighter glow-text">
+                        <span class="text-neonYellow">&nbsp;VAULT & CLAIM</span> <span class="text-white">DASHBOARD</span>
+                    </h1>
+                    <p class="text-xs uppercase tracking-widest text-white font-bold">&nbsp;&nbsp;&nbsp;ZAP PROTOCOL // MILESTONE STREAMING & LP TIMELOCK</p>
+                </div>
+            </div>
+            <div>
+                <button id="connectWalletBtn" onclick="connectWallet()" class="brutal-button px-5 py-2.5 text-xs uppercase tracking-widest cursor-pointer whitespace-nowrap">
+                    🔌 Connect Web3 Wallet
+                </button>
+            </div>
+        </header>
+
+        <!-- Connected Status Banner -->
+        <section class="mb-8">
+            <div class="brutal-border bg-panelBlack p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="space-y-1">
+                    <span class="text-[10px] uppercase tracking-widest text-white/70 block">Authenticated Stakeholder:</span>
+                    <span id="connectedAccount" class="font-mono text-sm sm:text-base font-bold text-white break-all">Not Connected (Connect Rabby / MetaMask)</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <span id="roleBadge" class="bg-deepBlack border-2 border-neonYellow px-3 py-1 text-xs font-bold uppercase text-neonYellow">
+                        Visitor // Read-Only
+                    </span>
+                    <span id="networkBadge" class="bg-deepBlack border-2 border-neonYellow/60 px-3 py-1 text-xs font-bold uppercase text-white">
+                        Elysium Testnet
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dual Gateway: LP Locker & Milestone Vault -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-stretch">
+            
+            <!-- MODULE 1: Liquidity Partner 14-Day Capital Lock -->
+            <div class="brutal-border bg-panelBlack p-6 flex flex-col justify-between space-y-6">
+                <div>
+                    <div class="flex justify-between items-start mb-4 border-b-2 border-neonYellow pb-3">
+                        <div>
+                            <div class="inline-block bg-neonYellow text-deepBlack font-black px-2 py-0.5 text-[10px] uppercase tracking-widest mb-1">
+                                Custody Module
+                            </div>
+                            <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight">14-Day LP Locker</h2>
+                        </div>
+                        <div class="text-right font-mono text-[10px] text-white/70">
+                            ZAPLPLocker.sol
+                        </div>
+                    </div>
+
+                    <p class="text-xs font-mono text-white/90 leading-relaxed mb-6">
+                        Under <span class="text-neonYellow font-bold">ZAPLPLocker.sol</span>, 100% of the initial DEX Liquidity Provider tokens are cryptographically locked. 
+                        Upon epoch completion, tokens release <span class="underline font-bold text-white">exclusively</span> to the hardcoded Beneficiary address.
+                    </p>
+
+                    <div class="space-y-3 bg-deepBlack border-2 border-neonYellow p-4 font-mono text-xs mb-6">
+                        <div class="flex justify-between border-b border-neonYellow/30 pb-2">
+                            <span class="text-white/70">Locker Contract:</span>
+                            <a href="https://testnet.elysium.kinetiq.xyz/address/0xf8d44c2de924c04699a7a9AD869ceB057fA7B830" target="_blank" class="text-neonYellow hover:underline">0xf8d4...B830 ↗</a>
+                        </div>
+                        <div class="flex justify-between border-b border-neonYellow/30 pb-2">
+                            <span class="text-white/70">LP Balance in Vault:</span>
+                            <span id="lpLockedBalance" class="text-white font-bold">4,898.9795 ZAP-LP</span>
+                        </div>
+                        <div class="flex justify-between border-b border-neonYellow/30 pb-2">
+                            <span class="text-white/70">Designated Beneficiary:</span>
+                            <span id="lpBeneficiary" class="text-neonYellow font-bold break-all">0xF972...2887</span>
+                        </div>
+                        <div class="flex justify-between pt-1">
+                            <span class="text-white/70">Lock Maturity Epoch:</span>
+                            <span id="lpUnlockTime" class="text-white font-bold">14 Days from Genesis</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[11px] uppercase font-mono font-bold text-white">
+                            <span>Locker Time Lockout</span>
+                            <span id="lockTimerBadge" class="text-neonYellow">Timer Active</span>
+                        </div>
+                        <div class="w-full bg-panelBlack border-2 border-neonYellow/60 h-4 p-0.5 relative overflow-hidden">
+                            <div id="lpLockProgressBar" class="bg-neonYellow h-full transition-all duration-500" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="withdrawLpBtn" onclick="withdrawLpTokens()" disabled class="brutal-button w-full py-3 text-xs uppercase tracking-widest cursor-pointer whitespace-nowrap">
+                        🔒 Withdraw Locked LP Tokens
+                    </button>
+                    <p id="lpFeedback" class="text-[10px] uppercase font-bold text-neonYellow text-center mt-2 h-4"></p>
+                </div>
+            </div>
+
+            <!-- MODULE 2: KPI Milestone Vault Streaming & Claims -->
+            <div class="brutal-border bg-panelBlack p-6 flex flex-col justify-between space-y-6">
+                <div>
+                    <div class="flex justify-between items-start mb-4 border-b-2 border-neonYellow pb-3">
+                        <div>
+                            <div class="inline-block bg-neonYellow text-deepBlack font-black px-2 py-0.5 text-[10px] uppercase tracking-widest mb-1">
+                                Incentive Vault
+                            </div>
+                            <h2 class="text-xl sm:text-2xl font-black uppercase tracking-tight">Milestone Claims</h2>
+                        </div>
+                        <div class="text-right font-mono text-[10px] text-white/70">
+                            ZAPVault.sol
+                        </div>
+                    </div>
+
+                    <p class="text-xs font-mono text-white/90 leading-relaxed mb-6">
+                        The 40,000,000 $ZAP protocol vault streams linearly over 8-day per-second windows once KPI triggers are registered on-chain. 
+                        Claimable balances update in real-time according to your allocated 60:20:20 stakeholder share.
+                    </p>
+
+                    <div class="space-y-3 bg-deepBlack border-2 border-neonYellow p-4 font-mono text-xs mb-6">
+                        <div class="flex justify-between border-b border-neonYellow/30 pb-2">
+                            <span class="text-white/70">Protocol Vault Reserve:</span>
+                            <span id="vaultRemaining" class="text-white font-bold">40,000,000 ZAP (100%)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-neonYellow/30 pb-2">
+                            <span class="text-white/70">Active Unlocked Tranche:</span>
+                            <span class="text-white font-bold">None (Standby for Step 1)</span>
+                        </div>
+                        <div class="flex justify-between border-b border-neonYellow/30 pb-2">
+                            <span class="text-white/70">Your Total Allocation:</span>
+                            <span id="partnerAllocated" class="text-neonYellow font-bold">0.00 ZAP</span>
+                        </div>
+                        <div class="flex justify-between pt-1">
+                            <span class="text-white/70">Live Streamed & Claimable:</span>
+                            <span id="partnerClaimable" class="text-green-400 font-bold text-sm">0.00 ZAP</span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex justify-between text-[11px] uppercase font-mono font-bold text-white">
+                            <span class="flex items-center gap-1.5">
+                                <span class="inline-block w-2 h-2 rounded-full bg-neonYellow animate-ping"></span>
+                                Step 1: Ignition Horizon ($500K MC)
+                            </span>
+                            <span class="text-neonYellow">0 / 5 Armed</span>
+                        </div>
+                        <div class="w-full bg-panelBlack border-2 border-neonYellow/60 h-4 p-0.5 relative overflow-hidden">
+                            <div class="bg-neonYellow h-full neon-progress-glow transition-all duration-500" style="width: 3.5%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button id="claimStreamBtn" onclick="claimStreamedTokens()" disabled class="brutal-button w-full py-3 text-xs uppercase tracking-widest cursor-pointer whitespace-nowrap">
+                        ⚡ Claim Unlocked $ZAP
+                    </button>
+                    <p id="claimFeedback" class="text-[10px] uppercase font-bold text-neonYellow text-center mt-2 h-4"></p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- 5-Step Allocation Schedule Matrix -->
+        <section class="mb-12">
+            <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-4">
+                <div class="border-b-2 border-neonYellow pb-4">
+                    <h3 class="text-xl sm:text-2xl font-black uppercase tracking-tight">Milestone Release Matrix & Participant Split</h3>
+                    <p class="text-xs uppercase text-white font-mono mt-1">60:20:20 programmatic streaming matrix across all 5 tiers.</p>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left font-mono text-xs sm:text-sm border-2 border-neonYellow">
+                        <thead class="bg-deepBlack text-neonYellow uppercase border-b-2 border-neonYellow">
+                            <tr>
+                                <th class="p-3 border-r-2 border-neonYellow">Tranche</th>
+                                <th class="p-3 border-r-2 border-neonYellow">Trigger KPI</th>
+                                <th class="p-3 border-r-2 border-neonYellow">Liquidity Partner (60%)</th>
+                                <th class="p-3 border-r-2 border-neonYellow">Attention Merchant (20%)</th>
+                                <th class="p-3 border-r-2 border-neonYellow">Creator Reserve (20%)</th>
+                                <th class="p-3">Unlock Mechanism</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y-2 divide-neonYellow text-white">
+                            <tr class="bg-deepBlack/80">
+                                <td class="p-3 font-bold border-r-2 border-neonYellow text-neonYellow">TGE Block 0</td>
+                                <td class="p-3 border-r-2 border-neonYellow">$25K LP Seed</td>
+                                <td class="p-3 border-r-2 border-neonYellow text-neonYellow font-bold">0 ZAP (14-Day Lock)</td>
+                                <td class="p-3 border-r-2 border-neonYellow text-white/50">0 ZAP (0% Upfront)</td>
+                                <td class="p-3 border-r-2 border-neonYellow text-white/50">0 ZAP (0% Upfront)</td>
+                                <td class="p-3 text-neonYellow font-bold">🔒 ZAPLPLocker.sol</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 1: Ignition</td>
+                                <td class="p-3 border-r-2 border-neonYellow">$500K MC & $5M Vol</td>
+                                <td class="p-3 border-r-2 border-neonYellow text-neonYellow font-bold">4,800,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 opacity-80">8-Day Linear Stream</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 2: Velocity</td>
+                                <td class="p-3 border-r-2 border-neonYellow">$2.0M MC & $10M Vol</td>
+                                <td class="p-3 border-r-2 border-neonYellow text-neonYellow font-bold">4,800,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 opacity-80">8-Day Linear Stream</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 3: Expansion</td>
+                                <td class="p-3 border-r-2 border-neonYellow">$5.0M MC & $25M Vol</td>
+                                <td class="p-3 border-r-2 border-neonYellow text-neonYellow font-bold">4,800,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 opacity-80">8-Day Linear Stream</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold border-r-2 border-neonYellow">Step 4: Consolidation</td>
+                                <td class="p-3 border-r-2 border-neonYellow">$10.0M MC & $50M Vol</td>
+                                <td class="p-3 border-r-2 border-neonYellow text-neonYellow font-bold">4,800,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 border-r-2 border-neonYellow">1,600,000 ZAP</td>
+                                <td class="p-3 opacity-80">8-Day Linear Stream</td>
+                            </tr>
+                            <tr class="bg-neonYellow text-deepBlack font-black">
+                                <td class="p-3 border-r-2 border-deepBlack">Step 5: Graduation</td>
+                                <td class="p-3 border-r-2 border-deepBlack">$20.0M+ MC & $100M Vol</td>
+                                <td class="p-3 border-r-2 border-deepBlack">4,800,000 ZAP (24M Total)</td>
+                                <td class="p-3 border-r-2 border-deepBlack">1,600,000 ZAP (8M Total)</td>
+                                <td class="p-3 border-r-2 border-deepBlack">1,600,000 ZAP (8M Total)</td>
+                                <td class="p-3">Final Tranche Unlock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Back to Public Portal -->
+        <div class="text-center pb-6">
+            <a href="index.html" class="inline-block brutal-button-dark px-6 py-2.5 text-xs uppercase tracking-widest">
+                ← Return to Public zap.meme Portal
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-6xl mx-auto px-4 sm:px-8 border-t-4 border-neonYellow pt-4 pb-8 flex flex-col sm:flex-row justify-between items-center text-xs font-mono opacity-80 gap-2">
+        <div>© 2026 ZAP PROTOCOL. CLOUDFLARE ZERO TRUST PROTECTED.</div>
+        <div>CHAIN ID: 1338 // ELYSIUM L2</div>
+    </footer>
+
+    <!-- Web3 & Contract Logic -->
+    <script>
+        const ELYSIUM_CHAIN_ID = "0x53a"; // 1338 in hex
+        const ELYSIUM_RPC = "https://testnet-rpc.elysium.kinetiq.xyz";
+        const ZAP_TOKEN = "0x6BC984E9e4c5C4EB0389BCD3EbEA3122860a4421";
+        const LOCKER_ADDRESS = "0xf8d44c2de924c04699a7a9AD869ceB057fA7B830";
+        const HARDCODED_LP_BENEFICIARY = "0xF9720E8c55Fe16CEF280544904705B2111152887";
+
+        const LOCKER_ABI = [
+            "function beneficiary() view returns (address)",
+            "function unlockTime() view returns (uint256)",
+            "function released() view returns (bool)",
+            "function release() external"
+        ];
+
+        let userAccount = null;
+        let provider = null;
+        let signer = null;
+
+        async function connectWallet() {
+            if (window.ethereum) {
+                try {
+                    provider = new ethers.BrowserProvider(window.ethereum);
+                    const accounts = await provider.send("eth_requestAccounts", []);
+                    userAccount = accounts[0];
+                    signer = await provider.getSigner();
+
+                    document.getElementById("connectWalletBtn").textContent = 
+                        userAccount.substring(0, 6) + "..." + userAccount.substring(userAccount.length - 4);
+                    document.getElementById("connectedAccount").textContent = userAccount;
+
+                    detectRole(userAccount);
+                    checkLockerStatus();
+                } catch (err) {
+                    console.error("Wallet connection failed:", err);
+                }
+            } else {
+                alert("No Web3 wallet detected. Please open this page in Rabby, MetaMask, or Phantom.");
+            }
+        }
+
+        function detectRole(address) {
+            const roleBadge = document.getElementById("roleBadge");
+            const partnerAllocated = document.getElementById("partnerAllocated");
+
+            if (address.toLowerCase() === HARDCODED_LP_BENEFICIARY.toLowerCase()) {
+                roleBadge.textContent = "Verified Liquidity Partner (60%)";
+                roleBadge.className = "bg-neonYellow text-deepBlack px-3 py-1 text-xs font-black uppercase";
+                partnerAllocated.textContent = "24,000,000 ZAP (24% Total)";
+            } else if (address.toLowerCase() === "0x0B6f45af52504EDBBd24365a92629a73eFa2b9c9".toLowerCase()) {
+                roleBadge.textContent = "Protocol Deployer / Admin";
+                roleBadge.className = "bg-white text-deepBlack px-3 py-1 text-xs font-black uppercase";
+            } else {
+                roleBadge.textContent = "Verified Attention Merchant / Guest";
+                partnerAllocated.textContent = "8,000,000 ZAP (8% Total)";
+            }
+        }
+
+        async function checkLockerStatus() {
+            try {
+                const readProvider = provider || new ethers.JsonRpcProvider(ELYSIUM_RPC);
+                const locker = new ethers.Contract(LOCKER_ADDRESS, LOCKER_ABI, readProvider);
+                
+                const unlockTime = Number(await locker.unlockTime());
+                const isReleased = await locker.released();
+                const now = Math.floor(Date.now() / 1000);
+
+                const withdrawBtn = document.getElementById("withdrawLpBtn");
+                const lockTimerBadge = document.getElementById("lockTimerBadge");
+                const lpFeedback = document.getElementById("lpFeedback");
+
+                if (isReleased) {
+                    lockTimerBadge.textContent = "Released & Completed";
+                    withdrawBtn.textContent = "✅ LP Tokens Withdrawn";
+                    withdrawBtn.disabled = true;
+                    document.getElementById("lpLockProgressBar").style.width = "0%";
+                    return;
+                }
+
+                if (now >= unlockTime) {
+                    lockTimerBadge.textContent = "Unlocked & Ready";
+                    if (userAccount && userAccount.toLowerCase() === HARDCODED_LP_BENEFICIARY.toLowerCase()) {
+                        withdrawBtn.disabled = false;
+                        withdrawBtn.textContent = "⚡ Withdraw 100% LP Tokens";
+                        withdrawBtn.className = "brutal-button w-full py-3 text-xs uppercase tracking-widest cursor-pointer";
+                    } else {
+                        withdrawBtn.disabled = true;
+                        withdrawBtn.textContent = "Restricted to Beneficiary Wallet";
+                    }
+                } else {
+                    const daysRemaining = Math.ceil((unlockTime - now) / 86400);
+                    lockTimerBadge.textContent = `${daysRemaining} Days Locked`;
+                    withdrawBtn.disabled = true;
+                    withdrawBtn.textContent = `🔒 Locked (${daysRemaining} Days Remaining)`;
+                }
+            } catch (err) {
+                console.warn("Locker status check error:", err);
+            }
+        }
+
+        async function withdrawLpTokens() {
+            if (!signer) return;
+            const lpFeedback = document.getElementById("lpFeedback");
+            try {
+                lpFeedback.textContent = "Broadcasting release transaction to Elysium L2...";
+                const locker = new ethers.Contract(LOCKER_ADDRESS, LOCKER_ABI, signer);
+                const tx = await locker.release();
+                lpFeedback.textContent = `Transaction submitted: ${tx.hash.substring(0, 10)}... Waiting confirmation.`;
+                await tx.wait();
+                lpFeedback.textContent = "⚡ LP Tokens transferred successfully to your beneficiary address!";
+                checkLockerStatus();
+            } catch (err) {
+                console.error("Release call failed:", err);
+                lpFeedback.textContent = "Transaction failed or rejected.";
+            }
+        }
+
+        function claimStreamedTokens() {
+            const claimFeedback = document.getElementById("claimFeedback");
+            claimFeedback.textContent = "Step 1 Ignition milestone not yet triggered on Elysium AMM.";
+            setTimeout(() => { claimFeedback.textContent = ""; }, 4000);
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            checkLockerStatus();
+        });
+    </script>
+</body>
+</html>

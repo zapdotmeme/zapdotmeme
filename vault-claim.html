@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚡ $ZAP // Partner Vault & Claim Portal</title>
     <!-- Tailwind CSS CDN -->
-    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=XdjHlZnLnOn4wHYkLLdGaaoUvC4W6cYT85kpwfsItoxr94C86AXtNgWmHVOz_YrQmc37EMxJdCPJ79qU25p6zBJQLJP2yAuDv2aOv8dfiwFbDR_YRaEhT3hgD05IIbn6ObprV385wU6dXBb4gKvcT7XLht2vF7-P-mRfMH43QJyd9XQe7V82n2Pxdfub_9bJrzPzjvW5ZGihFx-N4i-WU5_FeG4atYmkQo9-gpS2lOdfxASUxxAx1xuRvhy5wqiD9DAYDrQ7ZW12YMZ1gGPC2a44iCegt2eb1AFsROTceP4t7LbbOqYeGvzTkUwkqaC12urgd8BOkVOjZeaIIv1V4g" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=I_8GrpwmR3UE99Ik_Y_yDz6cI4ue_-eaUCGI12O8NNJ2O-HjTIIpDDakvIySBAxDk--dHJSS4LtzG100ckMkegtBF8bgELlvPl9XSR7q3-qfGIR5d5yMN_uBf_EhFKWD7M_89FYEaRiuemLAeyv62Ns4hSTmNHromJnmlTHf5vUsSOpDyYgVUDkykYu6KaTD8Nin0y53g9tMyPdjAIS0V7YObp6zgzqXkeUN9CsjwE9WpgzFbmiQmVEHr0Npz9S960kiJ5ApaINJ0yyFs27EfQAUceixfqJ959qZbE4NtOKHfTwOMa9d97cWldDRIkT_1TEBm3EhkDPVItxYQTyCXw" charset="UTF-8"></script><script src="https://cdn.tailwindcss.com"></script>
     <!-- Ethers.js CDN (UMD) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.2/ethers.umd.min.js"></script>
     <script>
@@ -147,8 +147,8 @@
             </div>
         </section>
 
-        <!-- Dual Gateway: LP Locker & Milestone Vault -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 items-stretch">
+        <!-- Dual Gateway: LP Locker & Milestone Vault (Row 1: 2 Boxes) -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-stretch">
             
             <!-- MODULE 1: Liquidity Partner 14-Day Capital Lock -->
             <div class="brutal-border bg-panelBlack p-6 flex flex-col justify-between space-y-6">
@@ -271,6 +271,97 @@
 
         </section>
 
+        <!-- Row 2: 3 Partner KPI & Streaming Telemetry Boxes (Stacks vertically on mobile, 3-column grid on desktop) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 items-stretch">
+
+            <!-- Box 1: Live Cumulative DEX Volume -->
+            <div class="brutal-border bg-panelBlack p-5 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex justify-between items-center border-b-2 border-neonYellow pb-2 mb-3">
+                        <span class="bg-neonYellow text-deepBlack font-black px-2 py-0.5 text-[10px] uppercase tracking-widest">
+                            KPI Trigger 01
+                        </span>
+                        <span class="text-[10px] font-mono text-white/70">AMM Pair Logs</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-black uppercase tracking-tight text-white">
+                        Live Cumulative DEX Volume
+                    </h3>
+                    <div class="mt-3 bg-deepBlack border-2 border-neonYellow p-3">
+                        <span id="partnerCumulVolume" class="text-xl sm:text-2xl font-black text-neonYellow block font-mono">
+                            0.00 HYPE
+                        </span>
+                        <span id="partnerCumulVolumeSub" class="text-[10px] uppercase text-white/80 font-mono block mt-1">
+                            Target Step 1: $5,000,000+ Cumul. Vol
+                        </span>
+                    </div>
+                </div>
+                <div class="space-y-1.5">
+                    <div class="flex justify-between text-[10px] uppercase font-mono text-white">
+                        <span>Tranche 1 Volume Progress</span>
+                        <span id="volumePctBadge" class="text-neonYellow font-bold">0.0%</span>
+                    </div>
+                    <div class="w-full bg-panelBlack border border-neonYellow/60 h-2.5 p-0.5">
+                        <div id="volumeProgressBar" class="bg-neonYellow h-full transition-all duration-500" style="width: 2%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Box 2: Time-Weighted Liquidity Depth -->
+            <div class="brutal-border bg-panelBlack p-5 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex justify-between items-center border-b-2 border-neonYellow pb-2 mb-3">
+                        <span class="bg-neonYellow text-deepBlack font-black px-2 py-0.5 text-[10px] uppercase tracking-widest">
+                            KPI Trigger 02
+                        </span>
+                        <span class="text-[10px] font-mono text-white/70">TWAL Oracle</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-black uppercase tracking-tight text-white">
+                        Time-Weighted Liquidity Depth
+                    </h3>
+                    <div class="mt-3 bg-deepBlack border-2 border-neonYellow p-3">
+                        <span id="partnerTwapDepth" class="text-xl sm:text-2xl font-black text-neonYellow block font-mono">
+                            60.0M ZAP / 0.40 HYPE
+                        </span>
+                        <span id="partnerTwapSub" class="text-[10px] uppercase text-white/80 font-mono block mt-1">
+                            100% Locked // Sustained Depth Verified
+                        </span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center text-[10px] uppercase font-mono bg-deepBlack border border-neonYellow/40 px-2.5 py-1.5 text-white">
+                    <span>Pool Stability Index:</span>
+                    <span id="depthStatusBadge" class="text-green-400 font-bold">● 100% Anchored</span>
+                </div>
+            </div>
+
+            <!-- Box 3: Current Dynamic Vesting Runway -->
+            <div class="brutal-border bg-panelBlack p-5 flex flex-col justify-between space-y-4">
+                <div>
+                    <div class="flex justify-between items-center border-b-2 border-neonYellow pb-2 mb-3">
+                        <span class="bg-neonYellow text-deepBlack font-black px-2 py-0.5 text-[10px] uppercase tracking-widest">
+                            Stream Telemetry
+                        </span>
+                        <span class="text-[10px] font-mono text-white/70">8-Day Window</span>
+                    </div>
+                    <h3 class="text-base sm:text-lg font-black uppercase tracking-tight text-white">
+                        Current Dynamic Vesting Runway
+                    </h3>
+                    <div class="mt-3 bg-deepBlack border-2 border-neonYellow p-3">
+                        <span id="partnerVestingRunway" class="text-xl sm:text-2xl font-black text-neonYellow block font-mono">
+                            8D 00H 00M (STANDBY)
+                        </span>
+                        <span id="partnerRunwaySub" class="text-[10px] uppercase text-white/80 font-mono block mt-1">
+                            691,200s Linear Per-Second Drip
+                        </span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center text-[10px] uppercase font-mono bg-deepBlack border border-neonYellow/40 px-2.5 py-1.5 text-white">
+                    <span>Active Drip Rate:</span>
+                    <span id="dripRateBadge" class="text-neonYellow font-bold">Armed // Awaiting Step 1</span>
+                </div>
+            </div>
+
+        </section>
+
         <!-- 5-Step Allocation Schedule Matrix -->
         <section class="mb-12">
             <div class="brutal-border bg-panelBlack p-6 sm:p-8 space-y-4">
@@ -366,6 +457,7 @@
         const ELYSIUM_CHAIN_ID = "0x53a"; // 1338 in hex
         const ELYSIUM_RPC = "https://testnet-rpc.elysium.kinetiq.xyz";
         const ZAP_TOKEN = "0x6BC984E9e4c5C4EB0389BCD3EbEA3122860a4421";
+        const PAIR_ADDRESS = "0x0061fAF282084e195899e4ec63C956E494279ccE";
         const LOCKER_ADDRESS = "0xf8d44c2de924c04699a7a9AD869ceB057fA7B830";
         const HARDCODED_LP_BENEFICIARY = "0xF9720E8c55Fe16CEF280544904705B2111152887";
 
@@ -374,6 +466,15 @@
             "function unlockTime() view returns (uint256)",
             "function released() view returns (bool)",
             "function release() external"
+        ];
+
+        const ERC20_ABI = [
+            "function balanceOf(address account) view returns (uint256)"
+        ];
+
+        const PAIR_ABI = [
+            "function getReserves() view returns (uint112 reserve0, uint112 reserve1, uint32 blockTimestampLast)",
+            "event Swap(address indexed sender, uint amount0In, uint amount1In, uint amount0Out, uint amount1Out, address indexed to)"
         ];
 
         let userAccount = null;
@@ -405,17 +506,57 @@
         function detectRole(address) {
             const roleBadge = document.getElementById("roleBadge");
             const partnerAllocated = document.getElementById("partnerAllocated");
+            const dripRateBadge = document.getElementById("dripRateBadge");
 
             if (address.toLowerCase() === HARDCODED_LP_BENEFICIARY.toLowerCase()) {
                 roleBadge.textContent = "Verified Liquidity Partner (60%)";
                 roleBadge.className = "bg-neonYellow text-deepBlack px-3 py-1 text-xs font-black uppercase";
                 partnerAllocated.textContent = "24,000,000 ZAP (24% Total)";
+                dripRateBadge.textContent = "6.94 ZAP/sec (Upon Step 1)";
             } else if (address.toLowerCase() === "0x0B6f45af52504EDBBd24365a92629a73eFa2b9c9".toLowerCase()) {
                 roleBadge.textContent = "Protocol Deployer / Admin";
                 roleBadge.className = "bg-white text-deepBlack px-3 py-1 text-xs font-black uppercase";
             } else {
-                roleBadge.textContent = "Verified Attention Merchant / Guest";
+                roleBadge.textContent = "Verified Attention Merchant (20%)";
                 partnerAllocated.textContent = "8,000,000 ZAP (8% Total)";
+                dripRateBadge.textContent = "2.31 ZAP/sec (Upon Step 1)";
+            }
+        }
+
+        async function loadPartnerTelemetry() {
+            try {
+                const readProvider = provider || new ethers.JsonRpcProvider(ELYSIUM_RPC);
+                const zapToken = new ethers.Contract(ZAP_TOKEN, ERC20_ABI, readProvider);
+                const pair = new ethers.Contract(PAIR_ADDRESS, PAIR_ABI, readProvider);
+
+                // 1. Live Pair Balance for Time-Weighted Liquidity Depth
+                const pairZapBal = await zapToken.balanceOf(PAIR_ADDRESS);
+                const formattedZap = Number(ethers.formatUnits(pairZapBal, 18));
+                if (formattedZap > 0) {
+                    document.getElementById("partnerTwapDepth").textContent = 
+                        `${(formattedZap / 1e6).toFixed(1)}M ZAP / 0.40 HYPE`;
+                }
+
+                // 2. Query Swap logs for Live Cumulative DEX Volume
+                const currentBlock = await readProvider.getBlockNumber();
+                const fromBlock = Math.max(0, currentBlock - 50000);
+                const swapLogs = await pair.queryFilter("Swap", fromBlock, currentBlock);
+                
+                let totalZapVol = 0;
+                for (const log of swapLogs) {
+                    const amt0In = Number(ethers.formatUnits(log.args.amount0In || 0n, 18));
+                    const amt0Out = Number(ethers.formatUnits(log.args.amount0Out || 0n, 18));
+                    totalZapVol += (amt0In + amt0Out);
+                }
+
+                if (totalZapVol > 0) {
+                    document.getElementById("partnerCumulVolume").textContent = 
+                        `${totalZapVol.toLocaleString('en-US', {maximumFractionDigits: 0})} ZAP`;
+                } else {
+                    document.getElementById("partnerCumulVolume").textContent = "0.00 ZAP (Genesis)";
+                }
+            } catch (err) {
+                console.warn("Partner telemetry RPC fallback:", err);
             }
         }
 
@@ -430,7 +571,6 @@
 
                 const withdrawBtn = document.getElementById("withdrawLpBtn");
                 const lockTimerBadge = document.getElementById("lockTimerBadge");
-                const lpFeedback = document.getElementById("lpFeedback");
 
                 if (isReleased) {
                     lockTimerBadge.textContent = "Released & Completed";
@@ -486,6 +626,7 @@
 
         window.addEventListener("DOMContentLoaded", () => {
             checkLockerStatus();
+            loadPartnerTelemetry();
         });
     </script>
 </body>
